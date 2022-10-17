@@ -2,55 +2,27 @@
 // элементов и выводит их на экран.
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
-Console.WriteLine("Введите числа через запятую: ");
-string msg = Console.ReadLine();
+Console.WriteLine("Введите max до 8 чисел только через запятую: ");
+string text = Console.ReadLine()!;
 
-Console.WriteLine("переводим строку в массив: ");
-int[] array = new int [8];
-
-void PrintArray(String[] collection)
+int[] GetArrayFromString(string stringArray, int lengthNubers)
 {
-
-    int count = collection.Length;
-    for (int position = 0; position < count; position++)
+    string[] numbers = stringArray.Split(",", StringSplitOptions.RemoveEmptyEntries);
+    int[] result = new int[numbers.Length];
+    for (int index = 0; index < numbers.Length; index++)
     {
-        Console.Write($"{collection[position]} ");
+        result[index] = int.Parse(numbers[index]);
     }
-}
-// PrintArray(array);
-
-int SpaceIndex = 0;
-int CommaIndex = 0;
-
-
-string str  = "31, 24, 5, 7, 19";
-
-string s = ""; // для чисел
-for () { // цикл по строке поэлементно
-    string el = str[i];
-    if (el.Equals(",") || el.Equals(" ")) {
-     // todo 1 добавить el в массив
-    // обнулить el
-    el = "";
-    } else {
-        s = s + el;
-    }
+    return result;
 }
 
+int[] array = GetArrayFromString(text, 8);
 
-
-
-// int length = str.IndexOf(", ");
-// Console.WriteLine(str.Substring(0, length));
-// str = str.Substring(str.IndexOf(", ") + 2);
-// Console.WriteLine(str);
-String[] sa = str.Split();
-PrintArray(sa);
-
-// char[] arrayNew = msg.ToCharArray();
-// int length = arrayNew.Length;
-// for(int index = 0; index < length; index++)
-// {
-
-// } 
-// Console.WriteLine(arrayNew);
+if (array.Length > 8)
+{
+    Console.WriteLine(" Введите корректное число символов (не больше 8)");
+} 
+else 
+{
+    Console.Write(String.Join(", ", array));
+}
