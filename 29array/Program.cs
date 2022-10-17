@@ -20,7 +20,7 @@ int[] array = GetArrayFromString(text, 8);
 
 if (array.Length > 8)
 {
-    Console.WriteLine(" Введите корректное число символов (не больше 8)");
+    Console.WriteLine("Введите корректное число символов (не больше 8)");
 } 
 else 
 {
